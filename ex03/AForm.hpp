@@ -39,7 +39,7 @@ class AForm
 		int				getGradeExec() const;
 		void			beSigned(Bureaucrat &ref);
 		void			beExecuted(Bureaucrat const & ref);
-		virtual void	execute(Bureaucrat const & executor) = 0;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream	&operator<<(std::ostream &stream, AForm &ref);

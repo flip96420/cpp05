@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 14:57:45 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/18 18:53:53 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/08/14 18:11:56 by phillymilly      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
