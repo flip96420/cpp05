@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:20:43 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/18 18:53:48 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:58:59 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Bureaucrat::subGrade(unsigned int amount)
 	this->setGrade(this->getGrade() + amount);
 }
 
-void	Bureaucrat::signForm(AForm const & form) const
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{

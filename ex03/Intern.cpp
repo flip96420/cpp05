@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:08:00 by pschmunk          #+#    #+#             */
-/*   Updated: 2025/08/18 18:48:39 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:29:13 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Intern::~Intern()
 }
 
 // Non-member functions
-static AForm*   createShrubbery(std::string const &target)
+static AForm    *createShrubbery(std::string const &target)
 {
     return (new ShrubberyCreationForm(target));
 }

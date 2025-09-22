@@ -13,6 +13,7 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
+# include <iostream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -22,7 +23,6 @@ class AForm
 	private:
 		std::string	name;
 		bool		is_signed;
-		bool		is_executed;
 		int			grade_sign;
 		int			grade_exec;
 		void		setGradeSign(int grade);
@@ -37,8 +37,8 @@ class AForm
 		bool			getIfSigned() const;
 		int				getGradeSign() const;
 		int				getGradeExec() const;
-		void			beSigned(Bureaucrat &ref);
-		void			beExecuted(Bureaucrat const & ref);
+		void			beSigned(Bureaucrat& ref);
+		void			beExecuted(Bureaucrat const &ref) const;
 		virtual void	execute(Bureaucrat const & executor) = 0;
 };
 

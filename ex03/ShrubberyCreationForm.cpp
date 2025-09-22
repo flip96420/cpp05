@@ -55,7 +55,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 
 // Member functions
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
