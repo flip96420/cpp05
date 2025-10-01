@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:57:10 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 15:00:43 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:23:25 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AForm.hpp"
 
-class PresidentialPardonForm : AForm
+class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string	target;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+         #
+#    By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 19:19:31 by phillymilly       #+#    #+#              #
-#    Updated: 2025/08/14 00:39:02 by phillymilly      ###   ########.fr        #
+#    Updated: 2025/09/22 15:28:21 by pschmunk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CPP_05_SRC =	./main.cpp						\
 				./AForm.cpp						\
 				./ShrubberyCreationForm.cpp		\
 				./RobotomyRequestForm.cpp		\
-				./PresedentialPardonForm.cpp	\
+				./PresidentialPardonForm.cpp	\
 
 CPP_05_OBJ = $(CPP_05_SRC:.cpp=.o)
 

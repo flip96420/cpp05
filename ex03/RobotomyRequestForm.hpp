@@ -17,7 +17,7 @@
 
 class Bureaucrat;
 
-class RobotomyRequestForm : AForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	target;
@@ -27,7 +27,7 @@ class RobotomyRequestForm : AForm
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &copy);
 		~RobotomyRequestForm();
-		void	execute(Bureaucrat const & executor) const;
+		void	execute(Bureaucrat const & executor);
 };
 
 #endif

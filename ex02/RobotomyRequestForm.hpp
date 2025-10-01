@@ -15,7 +15,7 @@
 
 # include "AForm.hpp"
 
-class RobotomyRequestForm : AForm
+class RobotomyRequestForm : public AForm
 {
 	private:
 		std::string	target;

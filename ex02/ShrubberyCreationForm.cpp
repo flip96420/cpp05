@@ -60,21 +60,21 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 	try
 	{
 		this->beExecuted(executor);
-		std::ofstream output(this->target + "_shrubbery");
+		std::ofstream output((this->target + std::string("_shrubbery")).c_str());
 		if (output)
 		{
 			output <<	"     *     " << std::endl;
-			output <<	"    /.\    " << std::endl;
-			output <<	"   /o..\   " << std::endl;
-			output <<	"   /..o\   " << std::endl;
-			output <<	"  /.o..o\  " << std::endl;
-			output <<	"  /...o.\  " << std::endl;
-			output <<	" /..o....\ " << std::endl;
+			output <<	"    /.\\    " << std::endl;
+			output <<	"   /o..\\   " << std::endl;
+			output <<	"   /..o\\   " << std::endl;
+			output <<	"  /.o..o\\  " << std::endl;
+			output <<	"  /...o.\\  " << std::endl;
+			output <<	" /..o....\\ " << std::endl;
 			output <<	" ^^^[_]^^^ " << std::endl;
 			output.close();
 		}
 		else
-			throw("couldn't create or write into file: " + this->target + "_shrubbery.");
+			throw("couldn't create or write into file.");
 	}
 	catch (const char *reason)
 	{

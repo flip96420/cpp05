@@ -54,7 +54,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 
 // Member functions
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
 	try
 	{

@@ -13,7 +13,7 @@
 #include "AForm.hpp"
 
 // Constructors
-AForm::AForm() : name("default"), is_signed(false), is_executed(false), grade_sign(150), grade_exec(150)
+AForm::AForm() : name("default"), is_signed(false), grade_sign(150), grade_exec(150)
 {
     std::cout   << "Default constructor of object "
                 << '"' << this->getName() << '"' 
@@ -24,7 +24,6 @@ AForm::AForm(std::string name, int grade_sign, int grade_exec)
 {
 	this->name = name;
 	this->is_signed = false;
-	this->is_executed = false;
 	setGradeSign(grade_sign);
 	setGradeExec(grade_exec);
 	std::cout   << "Constructor of object "
@@ -101,10 +100,10 @@ void	AForm::beSigned(Bureaucrat &ref)
 		throw("grade is too low.");
 }
 
-void	AForm::beExecuted(Bureaucrat const & ref)
+void	AForm::beExecuted(Bureaucrat const & ref) const
 {
 	if (ref.getGrade() <= this->grade_exec && this->is_signed)
-		this->is_executed = true;
+	{}
 	else
 		throw("grade is too low.");
 }

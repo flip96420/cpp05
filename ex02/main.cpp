@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:49:25 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 15:03:14 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:37:57 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <ctime>
 
 void printHeader(const std::string& title, const std::string& description, const std::string& expected)
 {
@@ -68,9 +69,9 @@ void runPresidentialPardonFormTest2()
 	{
 		presidential.execute(TopBureaucrat); // should throw because not signed
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -90,9 +91,9 @@ void runPresidentialPardonFormTest3()
 	{
 		presidential.beSigned(lowBureaucrat);
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -113,9 +114,9 @@ void runPresidentialPardonFormTest4()
 		presidential.beSigned(topBureaucrat);
 		presidential.execute(lowBureaucrat); // should fail
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -138,9 +139,9 @@ void runPresidentialPardonFormTest5()
 		original.execute(boss);
 		copy.execute(boss);
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -166,9 +167,9 @@ void runRobotomyTest()
 			form.execute(executor);
 		}
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -190,9 +191,9 @@ void runShrubberyTest1()
 		form.execute(top);
 		std::cout << "\033[32mSuccess: File 'Garden_shrubbery' should now exist.\033[0m" << std::endl;
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -212,9 +213,9 @@ void runShrubberyTest2()
 		form.beSigned(low);
 		form.execute(low);
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -233,9 +234,9 @@ void runShrubberyTest3()
 	{
 		form.execute(top);
 	}
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -256,10 +257,9 @@ void runShrubberyTestFailFile()
 		form.beSigned(top);
 		form.execute(top);
 	}
-
-	catch (const std::exception& e)
+	catch (const char *e)
 	{
-		printException(e);
+		std::cout << e << std::endl;
 	}
 }
 
@@ -275,3 +275,5 @@ int main(void)
 	runShrubberyTest3();
 	runShrubberyTestFailFile();
 	runRobotomyTest();
+    return (0);
+}
