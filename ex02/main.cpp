@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:49:25 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 15:37:57 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:01:27 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void runPresidentialPardonFormTest2()
 {
 	printHeader
 	(
-	"Second Test",
-	"Test: Try to execute an unsigned PresidentialPardonForm",
-	"Exception should be thrown for unsigned form"
+		"Second Test",
+		"Test: Try to execute an unsigned PresidentialPardonForm",
+		"Exception should be thrown for unsigned form"
 	);
 	Bureaucrat TopBureaucrat("TopBureaucrat", 1);
 	PresidentialPardonForm presidential("Target");

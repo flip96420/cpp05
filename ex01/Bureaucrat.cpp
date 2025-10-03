@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:20:43 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/06 18:44:48 by phillymilly      ###   ########.fr       */
+/*   Updated: 2025/10/03 13:55:49 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150)
                 << " called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	this->name = name;
 	this->setGrade(grade);
 	std::cout   << "Constructor of object "
                 << '"' << this->getName() << '"' 
@@ -42,8 +41,8 @@ Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy)
     std::cout   << "Copy of object "
                 << '"' << this->getName() << '"'
                 << " created through overloading the assignment-operator." << std::endl;
-    this->name = copy.getName();
-    this->grade = copy.getGrade();
+	if (this != &copy)
+    	this->grade = copy.getGrade();
     return (*this);
 }
 
@@ -68,8 +67,19 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::setGrade(int grade)
 {
-	catchGrade("Bureaucrat", grade);
-	this->grade = grade;
+	try
+	{
+		if (grade < 1)
+			throw ("GradeTooHigh");
+		else if (grade > 150)
+			throw ("GradeTooLow");
+		this->grade = grade;
+	}
+	catch(char const *error)
+	{
+		std::cerr	<< "Bureaucrat" << "::"
+		<< error << "Exception" << std::endl;
+	}
 }
 
 void	Bureaucrat::addGrade(unsigned int amount)
@@ -91,7 +101,7 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch (const char *reason)
 	{
-		std::cout	<< this->getName() << " couldn't sign " << form.getName()
+		std::cerr	<< this->getName() << " couldn't sign " << form.getName()
 		<< " because " << reason << std::endl;
 	}
 }
@@ -103,21 +113,4 @@ std::ostream	&operator<<(std::ostream &stream, Bureaucrat &ref)
 	stream	<< ref.getName() << ", bureaucrat grade "
 			<< ref.getGrade() << "." << std::endl;
 	return (stream);
-}
-
-void	catchGrade(std::string class_name, int grade)
-{
-	try
-	{
-		if (grade < 1)
-			throw ("GradeTooHigh");
-		else if (grade > 150)
-			throw ("GradeTooLow");
-	}
-	catch(char const *error)
-	{
-		std::cout	<< class_name << "::"
-		<< error << "Exception" << std::endl;
-		exit(EXIT_FAILURE);
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:20:43 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/10/03 12:44:41 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/03 13:52:06 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,19 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::setGrade(int grade)
 {
-	catchGrade("Bureaucrat", grade);
-	this->grade = grade;
+	try
+	{
+		if (grade < 1)
+			throw ("GradeTooHigh");
+		else if (grade > 150)
+			throw ("GradeTooLow");
+		this->grade = grade;
+	}
+	catch(char const *error)
+	{
+		std::cerr	<< "Bureaucrat" << "::"
+		<< error << "Exception" << std::endl;
+	}
 }
 
 void	Bureaucrat::addGrade(unsigned int amount)
@@ -90,21 +101,4 @@ std::ostream	&operator<<(std::ostream &stream, Bureaucrat &ref)
 	stream	<< ref.getName() << ", bureaucrat grade "
 			<< ref.getGrade() << "." << std::endl;
 	return (stream);
-}
-
-void	catchGrade(std::string class_name, int grade)
-{
-	try
-	{
-		if (grade < 1)
-			throw ("GradeTooHigh");
-		else if (grade > 150)
-			throw ("GradeTooLow");
-	}
-	catch(char const *error)
-	{
-		std::cout	<< class_name << "::"
-		<< error << "Exception" << std::endl;
-		exit(EXIT_FAILURE);
-	}
 }

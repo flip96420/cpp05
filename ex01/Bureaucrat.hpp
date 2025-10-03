@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 14:57:45 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/06 18:55:06 by phillymilly      ###   ########.fr       */
+/*   Updated: 2025/10/03 13:42:30 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class Form;
 class Bureaucrat
 {
 	private:
-		std::string	name;
-		int			grade;
-		void		setGrade(int grade);
+		const std::string	name;
+		int					grade;
+		void				setGrade(int grade);
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
@@ -39,6 +39,5 @@ class Bureaucrat
 };
 
 std::ostream	&operator<<(std::ostream &stream, Bureaucrat &ref);
-void	catchGrade(std::string class_name, int grade);
 
 #endif

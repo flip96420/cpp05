@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 16:18:39 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/06 18:54:39 by phillymilly      ###   ########.fr       */
+/*   Updated: 2025/10/03 13:37:30 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string	name;
-		bool		is_signed;
-		int			grade_sign;
-		int			grade_exec;
-		void		setGradeSign(int grade);
-		void		setGradeExec(int grade);
+		const std::string	name;
+		bool				is_signed;
+		const int			grade_sign;
+		const int			grade_exec;
 	public:
 		Form();
 		Form(std::string name, int grade_sign, int grade_exec);

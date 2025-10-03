@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 16:18:35 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/06 18:52:13 by phillymilly      ###   ########.fr       */
+/*   Updated: 2025/10/03 13:56:27 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,31 @@ Form::Form() : name("default"), is_signed(false), grade_sign(150), grade_exec(15
 }
 
 Form::Form(std::string name, int grade_sign, int grade_exec)
+	: name(name), is_signed(false), grade_sign(grade_sign), grade_exec(grade_exec)
 {
-	this->name = name;
-	this->is_signed = false;
-	setGradeSign(grade_sign);
-	setGradeExec(grade_exec);
+	try
+	{
+		if (grade_sign > 150 || grade_exec > 150)
+			throw ("GradeTooLow");
+		if (grade_sign < 1 || grade_exec < 1)
+			throw ("GradeTooHigh");
+	}
+	catch(char const *error)
+	{
+		std::cerr	<< "Bureaucrat" << "::"
+		<< error << "Exception" << std::endl;
+	}
 	std::cout   << "Constructor of object "
                 << '"' << this->getName() << '"' 
                 << " called." << std::endl;
+	
 }
 
-Form::Form(const Form &copy)
+Form::Form(const Form &copy) : name(copy.name), is_signed(copy.is_signed), grade_sign(copy.grade_sign), grade_exec(copy.grade_exec)
 {
     std::cout   << "Copy of object "
                 << '"' << this->getName() << '"'
                 << " created through copy-constructor." << std::endl;
-    *this = copy;
 }
 
 Form  &Form::operator=(const Form &copy)
@@ -44,10 +53,8 @@ Form  &Form::operator=(const Form &copy)
     std::cout   << "Copy of object "
                 << '"' << this->getName() << '"'
                 << " created through assignment-operator." << std::endl;
-	this->name			= copy.getName();
-	this->is_signed		= copy.getIfSigned();
-	this->grade_sign	= copy.getGradeSign();
-	this->grade_exec	= copy.getGradeExec();
+	if (this != &copy)
+		this->is_signed = copy.getIfSigned();
     return (*this);
 }
 
@@ -78,18 +85,6 @@ int	Form::getGradeSign() const
 int	Form::getGradeExec() const
 {
 	return (this->grade_exec);
-}
-
-void	Form::setGradeSign(int grade)
-{
-	catchGrade("Form", grade);
-	this->grade_sign = grade;
-}
-
-void	Form::setGradeExec(int grade)
-{
-	catchGrade("Form", grade);
-	this->grade_exec = grade;
 }
 
 void	Form::beSigned(Bureaucrat &ref)
