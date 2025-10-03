@@ -14,11 +14,7 @@
 
 // Constructors
 AForm::AForm() : name("default"), is_signed(false), grade_sign(150), grade_exec(150)
-{
-    std::cout   << "Default constructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
-}
+{}
 
 AForm::AForm(std::string name, int grade_sign, int grade_exec)
 {
@@ -26,24 +22,15 @@ AForm::AForm(std::string name, int grade_sign, int grade_exec)
 	this->is_signed = false;
 	setGradeSign(grade_sign);
 	setGradeExec(grade_exec);
-	std::cout   << "Constructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
 }
 
 AForm::AForm(const AForm &copy)
 {
-    std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 AForm  &AForm::operator=(const AForm &copy)
 {
-    std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through assignment-operator." << std::endl;
 	this->name			= copy.getName();
 	this->is_signed		= copy.getIfSigned();
 	this->grade_sign	= copy.getGradeSign();
@@ -53,9 +40,6 @@ AForm  &AForm::operator=(const AForm &copy)
 
 AForm::~AForm()
 {
-    std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
 }
 
 
@@ -102,7 +86,9 @@ void	AForm::beSigned(Bureaucrat &ref)
 
 void	AForm::beExecuted(Bureaucrat const & ref) const
 {
-	if (ref.getGrade() <= this->grade_exec && this->is_signed)
+	if (!this->is_signed)
+		throw ("Form has not been signed yet");
+	if (ref.getGrade() <= this->grade_exec)
 	{}
 	else
 		throw("grade is too low.");

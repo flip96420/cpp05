@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phillymilly <phillymilly@student.42.fr>    +#+  +:+       +#+        */
+/*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:20:43 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/08/06 17:48:34 by phillymilly      ###   ########.fr       */
+/*   Updated: 2025/10/03 12:44:41 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150)
                 << " called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	this->name = name;
 	this->setGrade(grade);
 	std::cout   << "Constructor of object "
                 << '"' << this->getName() << '"' 
@@ -37,16 +36,18 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
     *this = copy;
 }
 
+// Operator overloads
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy)
 {
     std::cout   << "Copy of object "
                 << '"' << this->getName() << '"'
                 << " created through overloading the assignment-operator." << std::endl;
-    this->name = copy.getName();
-    this->grade = copy.getGrade();
+	if (this != &copy)
+    	this->grade = copy.getGrade();
     return (*this);
 }
 
+// Destructor
 Bureaucrat::~Bureaucrat()
 {
     std::cout   << "Destructor of object "

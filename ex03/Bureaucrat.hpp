@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 14:57:45 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 14:21:00 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/02 14:57:02 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stdlib.h>
+# include "AForm.hpp"
 
 class AForm;
 
@@ -34,7 +35,7 @@ class Bureaucrat
 		int				getGrade() const;
 		void			addGrade(unsigned int amount);
 		void			subGrade(unsigned int amount);
-		void			signForm(AForm const & form) const;
+		void			signForm(AForm &form);
 		void			executeForm(AForm const & form) const;
 };
 

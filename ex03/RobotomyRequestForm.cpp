@@ -13,48 +13,31 @@
 #include "RobotomyRequestForm.hpp"
 
 // Constructors
-RobotomyRequestForm::RobotomyRequestForm() : AForm("robot", 72, 45), target("default")
-{
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
-}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy Form", 72, 45), target("default")
+{}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("robot", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy Form", 72, 45)
 {
 	this->target = target;
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("robot", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("Robotomy Form", 72, 45)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through assignment-operator." << std::endl;
 	this->target = copy.target;
     return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
-{
-	std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
-}
+{}
 
 
 // Member functions
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
