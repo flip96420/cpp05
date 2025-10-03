@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 16:18:35 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/10/03 13:56:27 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:23:19 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,10 @@ Form::Form() : name("default"), is_signed(false), grade_sign(150), grade_exec(15
 Form::Form(std::string name, int grade_sign, int grade_exec)
 	: name(name), is_signed(false), grade_sign(grade_sign), grade_exec(grade_exec)
 {
-	try
-	{
-		if (grade_sign > 150 || grade_exec > 150)
-			throw ("GradeTooLow");
-		if (grade_sign < 1 || grade_exec < 1)
-			throw ("GradeTooHigh");
-	}
-	catch(char const *error)
-	{
-		std::cerr	<< "Bureaucrat" << "::"
-		<< error << "Exception" << std::endl;
-	}
+	if (grade_sign > 150 || grade_exec > 150)
+		throw ("GradeTooLow");
+	if (grade_sign < 1 || grade_exec < 1)
+		throw ("GradeTooHigh");
 	std::cout   << "Constructor of object "
                 << '"' << this->getName() << '"' 
                 << " called." << std::endl;
