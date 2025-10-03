@@ -16,41 +16,41 @@
 // Constructors
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrub", 145, 137), target("default")
 {
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrub", 145, 137)
 {
 	this->target = target;
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("shrub", 145, 137)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through assignment-operator." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through assignment-operator." << std::endl;
 	this->target = copy.target;
     return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+	// std::cout   << "Destructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 

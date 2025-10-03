@@ -17,24 +17,28 @@ AForm::AForm() : name("default"), is_signed(false), grade_sign(150), grade_exec(
 {}
 
 AForm::AForm(std::string name, int grade_sign, int grade_exec)
+	: name(name), is_signed(false), grade_sign(grade_sign), grade_exec(grade_exec)
 {
-	this->name = name;
-	this->is_signed = false;
-	setGradeSign(grade_sign);
-	setGradeExec(grade_exec);
+	if (grade_sign > 150 || grade_exec > 150)
+		throw ("GradeTooLow");
+	if (grade_sign < 1 || grade_exec < 1)
+		throw ("GradeTooHigh");
+	std::cout   << "Constructor of object "
+                << '"' << this->getName() << '"' 
+                << " called." << std::endl;
+	
 }
 
-AForm::AForm(const AForm &copy)
-{
-    *this = copy;
-}
+AForm::AForm(const AForm &copy) : name(copy.name), is_signed(copy.is_signed), grade_sign(copy.grade_sign), grade_exec(copy.grade_exec)
+{}
 
 AForm  &AForm::operator=(const AForm &copy)
 {
-	this->name			= copy.getName();
-	this->is_signed		= copy.getIfSigned();
-	this->grade_sign	= copy.getGradeSign();
-	this->grade_exec	= copy.getGradeExec();
+    std::cout   << "Copy of object "
+                << '"' << this->getName() << '"'
+                << " created through assignment-operator." << std::endl;
+	if (this != &copy)
+		this->is_signed	= copy.getIfSigned();
     return (*this);
 }
 
@@ -62,18 +66,6 @@ int	AForm::getGradeSign() const
 int	AForm::getGradeExec() const
 {
 	return (this->grade_exec);
-}
-
-void	AForm::setGradeSign(int grade)
-{
-	catchGrade("AForm", grade);
-	this->grade_sign = grade;
-}
-
-void	AForm::setGradeExec(int grade)
-{
-	catchGrade("AForm", grade);
-	this->grade_exec = grade;
 }
 
 void	AForm::beSigned(Bureaucrat &ref)

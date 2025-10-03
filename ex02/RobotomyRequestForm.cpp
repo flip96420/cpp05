@@ -15,41 +15,41 @@
 // Constructors
 RobotomyRequestForm::RobotomyRequestForm() : AForm("robot", 72, 45), target("default")
 {
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("robot", 72, 45)
 {
 	this->target = target;
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("robot", 72, 45)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &copy)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through assignment-operator." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through assignment-operator." << std::endl;
 	this->target = copy.target;
     return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+	// std::cout   << "Destructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 

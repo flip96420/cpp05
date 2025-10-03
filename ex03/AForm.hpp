@@ -20,12 +20,10 @@ class Bureaucrat;
 class AForm
 {
 	private:
-		std::string	name;
-		bool		is_signed;
-		int			grade_sign;
-		int			grade_exec;
-		void		setGradeSign(int grade);
-		void		setGradeExec(int grade);
+		const std::string	name;
+		bool				is_signed;
+		const int			grade_sign;
+		const int			grade_exec;
 	public:
 		AForm();
 		AForm(std::string name, int grade_sign, int grade_exec);

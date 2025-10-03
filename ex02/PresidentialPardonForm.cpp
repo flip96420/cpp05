@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:35:12 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 14:47:54 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:38:08 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,41 @@
 // Constructors
 PresidentialPardonForm::PresidentialPardonForm() : AForm("president", 25, 5), target("default")
 {
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("president", 25, 5)
 {
 	this->target = target;
-	std::cout   << "Default constructor of object "
-				<< '"' << this->getName() << '"' 
-				<< " called." << std::endl;
+	// std::cout   << "Default constructor of object "
+	// 			<< '"' << this->getName() << '"' 
+	// 			<< " called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm("president", 25, 5)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {
-	std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through assignment-operator." << std::endl;
+	// std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through assignment-operator." << std::endl;
 	this->target = copy.target;
     return (*this);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+	// std::cout   << "Destructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 

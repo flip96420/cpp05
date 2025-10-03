@@ -6,7 +6,7 @@
 /*   By: pschmunk <pschmunk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:20:43 by phillymilly       #+#    #+#             */
-/*   Updated: 2025/09/22 14:58:59 by pschmunk         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:37:26 by pschmunk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,33 @@
 // Constructors
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
-    std::cout   << "Default constructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+    // std::cout   << "Default constructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
 	this->name = name;
 	this->setGrade(grade);
-	std::cout   << "Constructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+	// std::cout   << "Constructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 {
-    std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through copy-constructor." << std::endl;
+    // std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through copy-constructor." << std::endl;
     *this = copy;
 }
 
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy)
 {
-    std::cout   << "Copy of object "
-                << '"' << this->getName() << '"'
-                << " created through overloading the assignment-operator." << std::endl;
+    // std::cout   << "Copy of object "
+    //             << '"' << this->getName() << '"'
+    //             << " created through overloading the assignment-operator." << std::endl;
     this->name = copy.getName();
     this->grade = copy.getGrade();
     return (*this);
@@ -49,9 +49,9 @@ Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout   << "Destructor of object "
-                << '"' << this->getName() << '"' 
-                << " called." << std::endl;
+    // std::cout   << "Destructor of object "
+    //             << '"' << this->getName() << '"' 
+    //             << " called." << std::endl;
 }
 
 
